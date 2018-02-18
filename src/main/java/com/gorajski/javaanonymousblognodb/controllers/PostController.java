@@ -31,6 +31,12 @@ public class PostController {
         return "show";
     }
 
+    @RequestMapping(value="/posts/{id}", method=RequestMethod.DELETE)
+    public String postDelete(@PathVariable int id) {
+        PostRepository.destroyPost(id);
+        return "redirect:/";
+    }
+
     @RequestMapping("/posts/new")
     public String postNew() {
         return "new";

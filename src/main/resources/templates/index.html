@@ -8,7 +8,16 @@
     <h1>All of the Posts</h1>
     <a href="/posts/new">New Post</a>
     <ul>
-        <li th:each="post : ${posts}"><a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}">A Post's Title</a></li>
+        <li th:each="post : ${posts}">
+            <span>
+                <a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}">A Post's Title</a>
+            </span>
+            <span>
+                <form th:action="@{'/posts/' + ${post.id}}" th:method="DELETE">
+                    <input type="submit"/>
+                </form>
+            </span>
+        </li>
     </ul>
 </body>
 </html>

@@ -32,4 +32,9 @@ public class PostRepository {
         posts.add((Post) post);
         return post;
     }
+
+    public static void destroyPost(int id) {
+        Post post = findPostById(id);
+        posts.remove(post);
+    }
 }
