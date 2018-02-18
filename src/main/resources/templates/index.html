@@ -5,7 +5,8 @@
     <title>All Posts</title>
 </head>
 <body>
-    <h1>This will show all of the posts</h1>
+    <h1>All of the Posts</h1>
+    <a href="/posts/new">New Post</a>
     <ul>
         <li th:each="post : ${posts}"><a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}">A Post's Title</a></li>
     </ul>
