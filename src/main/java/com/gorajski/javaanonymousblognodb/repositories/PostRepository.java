@@ -37,4 +37,11 @@ public class PostRepository {
         Post post = findPostById(id);
         posts.remove(post);
     }
+
+    public static void updatePost(int id, String title, String author, String body) {
+        Post post = findPostById(id);
+        if (title != post.getTitle()) {post.setTitle(title);}
+        if (author != post.getAuthor()) {post.setAuthor(author);}
+        if (body != post.getBody()) {post.setBody(body);}
+    }
 }

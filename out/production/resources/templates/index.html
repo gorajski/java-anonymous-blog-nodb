@@ -13,8 +13,9 @@
                 <a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}">A Post's Title</a>
             </span>
             <span>
+                <a th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit</a>
                 <form th:action="@{'/posts/' + ${post.id}}" th:method="DELETE">
-                    <input type="submit"/>
+                    <input type="submit" value="Delete"/>
                 </form>
             </span>
         </li>

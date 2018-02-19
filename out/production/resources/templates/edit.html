@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="|Edit ${post.title}|">Edit</title>
+</head>
+<body>
+    <h1 th:text="|Edit ${post.title}|">Edit</h1>
+    <form th:action="|/posts/${post.id}|" th:method="PUT">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" th:value="|${post.title}|"/>
+        <label for="author">Author</label>
+        <input id="author" name="author" type="text" th:value="|${post.author}|"/>
+        <label for="body">Body</label>
+        <input id="body" name="body" type="text" th:value="|${post.body}|"/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>

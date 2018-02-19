@@ -41,4 +41,20 @@ public class PostController {
     public String postNew() {
         return "new";
     }
+
+    @RequestMapping("/posts/{id}/edit")
+    public String postEdit(@PathVariable int id, ModelMap map) {
+        map.put("post", PostRepository.findPostById(id));
+        return "edit";
+    }
+
+    @RequestMapping(value="/posts/{id}", method=RequestMethod.PUT)
+    public String postUpdate(@PathVariable int id,
+                             @RequestParam("title") String title,
+                             @RequestParam("author") String author,
+                             @RequestParam("body") String body
+    ) {
+        PostRepository.updatePost(id, title, author, body);
+        return "redirect:/posts/" + id;
+    }
 }
